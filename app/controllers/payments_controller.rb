@@ -28,4 +28,15 @@ class PaymentsController < ApplicationController
     @auth_code = params[:x_auth_code]
   end
 
+  # POST
+  def aim_test
+    transaction = AuthorizeNet::AIM::Transaction.new(AUTHORIZE_NET_CONFIG['api_login_id'], AUTHORIZE_NET_CONFIG['api_transaction_key'], :gateway => :sandbox)
+    credit_card = AuthorizeNet::CreditCard.new(params[:card][:number], params[:card][:expiration])
+    response = transaction.purchase(params[:mount].to_f, credit_card)
+    if response.success?
+      redirect_to paymentspayment_path
+    else
+      raise "No anda nada" + AUTHORIZE_NET_CONFIG['api_login_id']
+    end
+  end
 end

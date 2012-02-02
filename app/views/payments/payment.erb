@@ -8,3 +8,17 @@
   <br />
   <%= f.submit 'Purchase'%>
 <% end %>
+**********************************************************************************
+OTHER FORM
+**********************************************************************************
+<%= form_for :aim_transaction, :url => payments_aim_test_path do |f| %>
+  <%= label_tag :mount, "Total: " %>
+  <%= text_field_tag :mount%>
+  <%= label :card,:number, 'Credit Card Number'%>
+  <%= text_field :card, :number %>
+  <%= label_tag :card, :expiration%>
+  <%= text_field :card, :expiration %>
+  <br />
+  <%= f.submit 'Purchase on AIM'%>
+<% end %>
+
