@@ -1,0 +1,8 @@
+default:
+  api_login_id: 7mb2Kh26sC2
+  api_transaction_key: 5aE87Y6aw5Y2ZsVv
+  merchant_hash_value: 7mb2Kh26sC2
+
+development: 
+test: 
+production: 
